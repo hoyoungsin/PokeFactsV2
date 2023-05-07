@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from "react"
+import Home from "./screens/Home.jsx"
+import { getPokemon } from './services/pokemon';
+
 
 function App() {
+  const [ pokemon, setPokemon] = useState([])
+  
+  const generatePokemon = async () => {
+    const poke = [];
+    let pokeIDs = [];
+    while(poke.length < 60) {
+      let pokeID = 151 - Math.floor(Math.random() * 151);
+      if(pokeID !== pokeIDs.find(ID => ID === pokeID)) {
+        const onePokemon = await getPokemon(pokeID)
+        poke.push(onePokemon)
+        pokeIDs.push(pokeID)
+      }
+    }
+    setPokemon(poke)
+  }
+
+  
+  useEffect(() => {
+    generatePokemon();
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Home poke={pokemon} />
+    </>
   );
 }
 
