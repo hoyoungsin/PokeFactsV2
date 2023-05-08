@@ -10,7 +10,7 @@ function App() {
   const generatePokemon = async () => {
     const poke = [];
     let pokeIDs = [];
-    while(poke.length < 60) {
+    while(poke.length < 80) {
       let pokeID = 151 - Math.floor(Math.random() * 151);
       if(pokeID !== pokeIDs.find(ID => ID === pokeID)) {
         const onePokemon = await getPokemon(pokeID)
