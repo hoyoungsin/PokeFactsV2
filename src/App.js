@@ -3,14 +3,14 @@ import { useState, useEffect } from "react"
 import Home from "./screens/Home.jsx"
 import { getPokemon } from './services/pokemon';
 
-
 function App() {
-  const [ pokemon, setPokemon] = useState([])
-  
+  const [ pokemon, setPokemon ] = useState([])
+  const [ pokeAmount, setPokeAmount ] = useState(50);
+
   const generatePokemon = async () => {
     const poke = [];
     let pokeIDs = [];
-    while(poke.length < 80) {
+    while(poke.length < pokeAmount) {
       let pokeID = 151 - Math.floor(Math.random() * 151);
       if(pokeID !== pokeIDs.find(ID => ID === pokeID)) {
         const onePokemon = await getPokemon(pokeID)
@@ -20,7 +20,6 @@ function App() {
     }
     setPokemon(poke)
   }
-
   
   useEffect(() => {
     generatePokemon();
@@ -28,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Home poke={pokemon} />
+      <Home poke={pokemon} pokeAmount={pokeAmount} setPokeAmount={setPokeAmount} generatePokemon={generatePokemon} />
     </>
   );
 }
