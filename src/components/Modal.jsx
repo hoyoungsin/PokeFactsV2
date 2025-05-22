@@ -1,6 +1,6 @@
 export default function Modal({poke, pokeInfo}) {
-    console.log(poke)
-    console.log([pokeInfo])
+    // console.log(poke)
+    // console.log([pokeInfo])
     let pokeName = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
     return (
         <div className="modal__content">
