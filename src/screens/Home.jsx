@@ -10,7 +10,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
   const fetchPokeInfo = async (id) => {
     const info = await getPokeInfo(id)
     for (let i = 0; i < info.flavor_text_entries.length; i++) {
-      console.log(info.flavor_text_entries[i].language.name)
+      // console.log(info.flavor_text_entries[i].language.name)
       if (info.flavor_text_entries[i].language.name === `en`) {
         setPokeInfo(info.flavor_text_entries[i].flavor_text)
         break;
@@ -21,12 +21,17 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
   } 
   
   const handleChange = (event) => {
-      setPokeAmount(parseInt(event.target.value, 10))
+    setPokeAmount(parseInt(event.target.value, 10))
   }
 
   const handleClick = (id) => {
     setPokeId(id)
     fetchPokeInfo(id)
+  }
+
+  const handleGenerate = () => {
+    setPokeId(null)
+    generatePokemon()
   }
 
   return (
@@ -35,7 +40,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
       <div className="slider">
         <div className="pokeAmount" id="sliderValue">Amount of Pokemon: {pokeAmount} </div>
         <input type="range" min="1" max="100" value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
-        <input type="button" value="Generate" onClick={generatePokemon} />
+        <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
       <div className="container" >
         {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
