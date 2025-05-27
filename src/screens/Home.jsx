@@ -9,7 +9,15 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
 
   const fetchPokeInfo = async (id) => {
     const info = await getPokeInfo(id)
-    setPokeInfo(info.flavor_text_entries[0].flavor_text)
+    for (let i = 0; i < info.flavor_text_entries.length; i++) {
+      console.log(info.flavor_text_entries[i].language.name)
+      if (info.flavor_text_entries[i].language.name === `en`) {
+        setPokeInfo(info.flavor_text_entries[i].flavor_text)
+        break;
+      } else {
+        setPokeInfo(info.flavor_text_entries[0].flavor_text)
+      }
+    }
   } 
   
   const handleChange = (event) => {
