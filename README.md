@@ -1,10 +1,13 @@
 # PokeFacts
 
-https://pokefacts.netlify.app/
+Welcome to PokeFactsV2!
 
-This project is an updated version of [PokeFacts](https://github.com/hoyoungsin/PokeFacts) made with React and deployed with Netlify.
+This project is an updated version of [PokeFacts](https://github.com/hoyoungsin/PokeFacts) made with React and deployed with Netlify and uses [PokeAPI](https://pokeapi.co/) for Pokemon information.
 
-Currently only Gen 1 pokemon will be generated randomly with the slider only ranging from 1 to 100.
+You can access the app on https://pokefacts.netlify.app/.
+Click on any Pokemon to open an info modal for the selected Pokemon. Use the slider and generate button to generate a new set of Pokemon.
+
+*Currently only Gen 1 pokemon will be generated randomly with the slider only ranging from 1 to 151. Access to other generation of pokemon are available
 
 ### Added Features
 * No repeat Pokemon
@@ -19,7 +22,6 @@ More detailed information:
 * Move List
 
 Sort by
-* Random order
 * Pokemon Number
 
 Filters for

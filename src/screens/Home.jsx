@@ -39,7 +39,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
       <h1>PokeFacts</h1>
       <div className="slider">
         <div className="pokeAmount" id="sliderValue">Amount of Pokemon: {pokeAmount} </div>
-        <input type="range" min="1" max="100" value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
+        <input type="range" min="1" max="151" value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
       <div className="container" >
