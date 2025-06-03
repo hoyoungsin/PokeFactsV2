@@ -46,7 +46,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
         {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
       </div>
       <div id="info-modal" className="modal">
-        {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} pokeInfo={pokeInfo} /> : <></>}
+        {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} pokeInfo={pokeInfo}/> : <></>}
       </div>
     </>
   )

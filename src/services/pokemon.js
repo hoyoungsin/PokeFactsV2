@@ -18,12 +18,3 @@ export const getPokeInfo = async (id) => {
         console.error(`Failed to get Pokemon info - error: ${error}`)        
     }
 }
-
-export const getPokeType = async (id) => {
-    try {
-        const response = await api.get(`/type/${id}`)
-        return response.data
-    } catch (error) {
-        console.error(`Failed to get Pokemon types - error: ${error}`)
-    }
-}
