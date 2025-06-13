@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getPokeInfo } from "../services/pokemon.js";
-import Pokemon from "../components/Pokemon"
+import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
 export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon }) {
