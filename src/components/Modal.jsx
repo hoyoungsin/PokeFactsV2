@@ -1,5 +1,4 @@
-// import Types from "../components/Types";
-/// for types may need to use states
+import Types from "../components/Types";
 
 export default function Modal({poke, pokeInfo}) {
     // console.log(poke)
@@ -9,10 +8,9 @@ export default function Modal({poke, pokeInfo}) {
         <div className="modal__content">
             <h2 className="name">{pokeName}</h2>
             <img className="picture" src={poke.sprites.front_default} alt={pokeName}/> 
-            {/* <div>
-                {poke.types.map(pokemon => <Types key={poke.id} pokeTypes={pokemon}/>)}
-            </div> */}
-            <p className="type">{poke.types[0].type.name}</p>
+            <div className="typeContainer" >
+                {poke.types.map(types => <Types types={types}/>)}
+            </div>
             <p className="eggGroup">egggroup1 placeholder</p>
             <p className="eggGroup">egggroup2 placeholder</p>
             <p className="info">
