@@ -1,7 +1,9 @@
-export default function Types({types}) {
+export default function EggGroups({groupNum, eggGroup}) {
+    let groupName = eggGroup.charAt(0).toUpperCase() + eggGroup.slice(1);
+    console.log(eggGroup)
     return (
-        <p className="type">
-            {types.type.name}
+        <p className="eggGroup">
+            Egg Group {groupNum}: {groupName}
         </p>
     )
 }
