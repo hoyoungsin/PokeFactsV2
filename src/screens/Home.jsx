@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { getPokeInfo } from "../services/pokemon.js";
-import Pokemon from "../components/Pokemon"
+import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
 export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
+  const [ eggGroups, setEggGroups ] = useState([])
 
   const fetchPokeInfo = async (id) => {
     const info = await getPokeInfo(id)
+    // console.log(info)
+    setEggGroups(info.egg_groups.map((eggGroups)=> eggGroups.name))
     for (let i = 0; i < info.flavor_text_entries.length; i++) {
       // console.log(info.flavor_text_entries[i].language.name)
       if (info.flavor_text_entries[i].language.name === `en`) {
@@ -18,7 +21,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
         setPokeInfo(info.flavor_text_entries[0].flavor_text)
       }
     }
-  } 
+  }
   
   const handleChange = (event) => {
     setPokeAmount(parseInt(event.target.value, 10))
@@ -46,7 +49,7 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
         {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
       </div>
       <div id="info-modal" className="modal">
-        {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} pokeInfo={pokeInfo} /> : <></>}
+        {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} /> : <></>}
       </div>
     </>
   )
