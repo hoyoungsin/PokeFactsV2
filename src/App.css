@@ -51,7 +51,7 @@ h2 {
   align-items: center;
   justify-content: center;
   background: rgba(77, 77, 77, .7);
-  transition: all .4s;
+  transition: all 1s;
 }
 
 .modal:target {
@@ -78,6 +78,7 @@ h2 {
 
 .typeContainer {
   display: flex;
+  align-items: center;
 }
 
 .type {
@@ -178,8 +179,20 @@ h2 {
 }
 
 .eggGroupContainer {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .eggGroup {
+  border-style: solid;
+  width: 60px;
+}
+
+.abilityContainer {
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+.ability {
+  border-style: solid;
 }
