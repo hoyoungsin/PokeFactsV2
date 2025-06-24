@@ -185,12 +185,11 @@ h2 {
 
 .eggGroup {
   border-style: solid;
-  width: 60px;
 }
 
 .abilityContainer {
-  /* display: flex; */
-  /* align-items: center; */
+  display: flex;
+  align-items: center;
 }
 
 .ability {
