@@ -18,3 +18,13 @@ export const getPokeInfo = async (id) => {
         console.error(`Failed to get Pokemon info - error: ${error}`)        
     }
 }
+
+export const getAbilityInfo = async (ability) => {
+    try {
+        const response = await api.get(`/ability/${ability}`)
+        return response.data
+    } catch (error) {
+        console.error(`Failed to get Ability info - error: ${error}`)        
+    }
+}
+
