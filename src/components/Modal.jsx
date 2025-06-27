@@ -1,3 +1,4 @@
+import Sprites from "./modal components/Sprites.jsx";
 import Types from "./modal components/Types.jsx";
 import EggGroups from "./modal components/EggGroups.jsx";
 import Abilities from "./modal components/Abilities.jsx";
@@ -12,7 +13,7 @@ export default function Modal({poke, pokeInfo, eggGroups}) {
     return (
         <div className="modal__content">
             <h2 className="name">{pokeName}</h2>
-            <img className="picture" src={poke.sprites.front_default} alt={pokeName}/> 
+            <Sprites sprites={poke.sprites} />
             <Types types={poke.types} />
             <EggGroups eggGroups={eggGroups} />
             <Abilities abilities={poke.abilities} />
