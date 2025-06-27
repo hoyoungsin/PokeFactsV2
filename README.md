@@ -12,12 +12,11 @@ Click on any Pokemon to open an info modal for the selected Pokemon. Use the sli
 ### Added Features
 * No repeat Pokemon
 * Slider and Button for amount of Pokemon generated.
+* Type(s) with corresponding colors, Egg Group(s), and Abilities with details.
 
 ### Planned Features
 More detailed information:
 * Sprites by game versions
-* Type(s)
-* Egg Group(s)
 * Base stats with visual
 * Move List
 
