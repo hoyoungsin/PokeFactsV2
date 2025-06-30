@@ -29,15 +29,14 @@ h1 {
   width: auto;
 }
 
-h2 {
-  text-align: center
-}
-
-.picture {
+.sprite {
   height: 200px;
   width: auto;
 }
 
+.name {
+  text-align: center
+}  
 
 .modal {
   visibility: hidden;
