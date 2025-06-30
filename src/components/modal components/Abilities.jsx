@@ -24,13 +24,26 @@ export default function Abilities({abilities}) {
     useEffect(() => {
         const firstAbility = abilities[0].ability.name
         abilityDetails(firstAbility)
-    }, [abilities])    
+    }, [abilities])
+    
+    const formattedAbilityNames = abilities.map(ability => {
+        const formattedAbilityName = ability.ability.name
+            .split("-")
+            .map((abilityName) => abilityName.charAt(0).toUpperCase() + abilityName.slice(1))
+            .join(" ")
+            return formattedAbilityName
+    });
+    // console.log(formattedAbilityNames)
 
     return (
         <div className="abilitiesContainer">
             Abilities:
             <select name="abilities" onChange={(e) => handleSelect(e.target.value)}>
-                {abilities.map((ability, index) => (<option value={ability.ability.name} key={index} >{ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1)}</option>))}
+                {abilities.map((ability, index) => (
+                    <option value={ability.ability.name} key={index} >
+                        {formattedAbilityNames[index]}
+                    </option>))
+                }
             </select>
             <p>Ability Details: {abilityInfo}</p>
         </div>
