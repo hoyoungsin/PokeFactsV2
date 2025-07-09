@@ -39,13 +39,13 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
 
   return (
     <>
-      <h1>PokeFacts</h1>
+      <h1 className="Title">PokeFacts</h1>
       <div className="slider">
         <div className="pokeAmount" id="sliderValue">Amount of Pokemon: {pokeAmount} </div>
         <input type="range" min="1" max="151" value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
-      <div className="container" >
+      <div className="pokeContainer" >
         {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
       </div>
       <div id="info-modal" className="modal">
