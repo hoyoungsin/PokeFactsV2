@@ -7,15 +7,17 @@ body {
   text-align: center;
 }
 
-h1 {
+.Title {
   color: white;
 }
 
+
+/* Home */
 .pokeAmount {
   color: white;
 }
 
-.container {
+.pokeContainer {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -28,23 +30,16 @@ h1 {
   height: 100px;
   width: auto;
 }
+/* Home End */
 
-.sprite {
-  height: 200px;
-  width: auto;
-}
-
-.name {
-  text-align: center
-}  
-
+/* Modal */
 .modal {
   visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 10;
   left: 0;
   display: flex;
   align-items: center;
@@ -65,6 +60,8 @@ h1 {
   max-width: 90%;
   background: #fff;
   padding: 1em 2em;
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .modal__close {
@@ -75,9 +72,24 @@ h1 {
   text-decoration: none;
 }
 
+.sprite {
+  height: 200px;
+  width: auto;
+}
+
+.name {
+  text-align: center
+}  
+/* Modal End */
+
+
+/* Types */
 .typeContainer {
   display: flex;
   align-items: center;
+  align-content: space-around;
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .type {
@@ -176,22 +188,86 @@ h1 {
   border-color: #EF70EF;
   background-color: #EF70EF;
 }
-/* Type Colors End */
+/* Types and Type Colors End */
 
+
+/* Poke Info */
+.info {
+  border: solid;
+  /* TEMP BORDER */
+}
+/* Poke Info End */
+
+
+/* Egg Groups */
 .eggGroupContainer {
   display: flex;
   align-items: center;
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .eggGroup {
-  border-style: solid;
+  border: solid;
 }
+/* Egg Groups End */
 
-.abilityContainer {
-  display: flex;
+
+/* Abilities */
+.abilitiesContainer {
+  display: block;
   align-items: center;
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .ability {
   border-style: solid;
 }
+/* Abilities End */
+
+
+/* Base Stats */
+.baseStatsContainer {
+  display: block;
+  /* for easier view for now. update after fixing modal */
+
+  border: solid;
+  /* TEMP BORDER */
+}
+
+.dropbtn {
+  background-color: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.statBar {
+  height: 20px;
+} 
+
+/* Stat Colors */
+#hp {
+  background-color: #448F0C;
+}
+#attack {
+  background-color: #9B8510;
+}
+#defense {
+  background-color: #97410C;
+}
+#special-attack {
+  background-color: #0D7F9D;
+}
+#special-defense {
+  background-color: #304591;
+}
+#speed {
+  background-color: #8B1370;
+}
+/* Base Stats and Stat Colors End */
+
+
+/* BORDERS IN CONTAINERS FOR EASIER VIEWING UNTIL FINISHED EDITING */
