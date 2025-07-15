@@ -50,7 +50,7 @@ export default function Sprites({sprites}) {
             <p className="spriteSelect">
                 Sprite Version: 
                 <select name="spriteChoice" onChange={(e) => handleVersion(e.target.value)}>
-                    <option value="defaultSprite" >Default(Black/White)</option>
+                    <option value="defaultSprite" >Default</option>
                     {versionList.map((genVersion, index) => (<option value={genVersion} key={index} >{formattedVersionList[index]}</option>))}
                 </select>
             </p>
