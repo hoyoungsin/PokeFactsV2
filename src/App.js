@@ -8,6 +8,7 @@ function App() {
   const [ pokeAmount, setPokeAmount ] = useState(70)
   const [ genAmount, setGenAmount ] = useState(151)
   const [ genTotal, setGenTotal ] = useState(151)
+  const [ isLoading, setIsLoading ] = useState(true)
 
   const generatePokemon = async () => {
     const poke = [];
@@ -21,6 +22,7 @@ function App() {
       } 
     }
     setPokemon(poke)
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -30,6 +32,7 @@ function App() {
   return (
     <>
       <Home
+        isLoading={isLoading}
         poke={pokemon}
         pokeAmount={pokeAmount}
         setPokeAmount={setPokeAmount}

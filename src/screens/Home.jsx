@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -63,9 +63,12 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon,
         <input type="range" min="1" max={genAmount} value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
-      <div className="pokeContainer" >
-        {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
-      </div>
+      {isLoading ?
+        <div className="loading">Generating Pokemon</div> : 
+        <div className="pokeContainer" >
+          {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
+        </div>
+      }
       <div id="info-modal" className="modal">
         {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} /> : <></>}
       </div>
