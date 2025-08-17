@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon }) {
+export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -37,17 +37,38 @@ export default function Home({ poke, pokeAmount, setPokeAmount, generatePokemon 
     generatePokemon()
   }
 
+  const handleGenChange = (gen, total) => {
+    setGenAmount(gen)
+    setGenTotal(total)
+    setPokeAmount(70)
+    setPokeId(null)
+  }
+  
   return (
     <>
       <h1 className="Title">PokeFacts</h1>
+      <div className="genContainer">
+        <button className="genChange" onClick={() => handleGenChange(151, 151)}>Gen I</button>
+        <button className="genChange" onClick={() => handleGenChange(100, 251)}>Gen II</button>
+        <button className="genChange" onClick={() => handleGenChange(135, 386)}>Gen III</button>
+        <button className="genChange" onClick={() => handleGenChange(107, 493)}>Gen IV</button>
+        <button className="genChange" onClick={() => handleGenChange(156, 649)}>Gen V</button>
+        <button className="genChange" onClick={() => handleGenChange(72, 721)}>Gen VI</button>
+        <button className="genChange" onClick={() => handleGenChange(88, 809)}>Gen VII</button>
+        <button className="genChange" onClick={() => handleGenChange(96, 905)}>Gen VIII</button>
+        <button className="genChange" onClick={() => handleGenChange(120, 1025)}>Gen IX</button>
+      </div>
       <div className="slider">
         <div className="pokeAmount" id="sliderValue">Amount of Pokemon: {pokeAmount} </div>
-        <input type="range" min="1" max="151" value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
+        <input type="range" min="1" max={genAmount} value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
-      <div className="pokeContainer" >
-        {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
-      </div>
+      {isLoading ?
+        <div className="loading">Generating Pokemon</div> : 
+        <div className="pokeContainer" >
+          {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
+        </div>
+      }
       <div id="info-modal" className="modal">
         {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} /> : <></>}
       </div>

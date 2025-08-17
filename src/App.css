@@ -32,6 +32,19 @@ body {
 }
 /* Home End */
 
+
+
+/* Loading */
+
+.loading {
+  color: white;
+  font-size: 30px;
+}
+
+/* Loading End */
+
+
+
 /* Modal */
 .modal {
   visibility: hidden;
@@ -81,6 +94,7 @@ body {
   text-align: center
 }  
 /* Modal End */
+
 
 
 /* Types */
@@ -191,12 +205,14 @@ body {
 /* Types and Type Colors End */
 
 
+
 /* Poke Info */
 .info {
   border: solid;
   /* TEMP BORDER */
 }
 /* Poke Info End */
+
 
 
 /* Egg Groups */
@@ -213,6 +229,7 @@ body {
 /* Egg Groups End */
 
 
+
 /* Abilities */
 .abilitiesContainer {
   display: block;
@@ -227,6 +244,7 @@ body {
 /* Abilities End */
 
 
+
 /* Base Stats */
 .baseStatsContainer {
   display: block;
@@ -236,12 +254,16 @@ body {
   /* TEMP BORDER */
 }
 
-.dropbtn {
+.statdropbtn {
   background-color: white;
   border: none;
   padding: 16px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.statdropbtn:hover {
+  background-color: #DCDCDC;
 }
 
 .statBar {
@@ -269,5 +291,24 @@ body {
 }
 /* Base Stats and Stat Colors End */
 
+
+
+/* Moves */
+.movesContainer {
+  border: solid;
+  /* TEMP BORDER */
+}
+
+.movesdropbtn {
+  background-color: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.movesdropbtn:hover {
+  background-color: #DCDCDC;
+}
 
 /* BORDERS IN CONTAINERS FOR EASIER VIEWING UNTIL FINISHED EDITING */

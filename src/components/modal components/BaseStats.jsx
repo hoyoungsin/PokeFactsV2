@@ -8,7 +8,7 @@ export default function BaseStats({baseStats}) {
     }
 
     const handleButton = () => {
-        if (showStat == false) {
+        if (showStat === false) {
             setShowStat(true)
         } else {
             setShowStat(false)
@@ -34,7 +34,7 @@ export default function BaseStats({baseStats}) {
     // console.log(showStat)
     return (
         <div className="baseStatsContainer">
-            <button className="dropbtn" onClick={handleButton} >Base Stats</button>
+            <button className="statdropbtn" onClick={handleButton} >Base Stats</button>
             {showStat ? <StatBars/> : <></>}
         </div>
     )
