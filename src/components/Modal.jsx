@@ -3,6 +3,7 @@ import Types from "./modal components/Types.jsx";
 import EggGroups from "./modal components/EggGroups.jsx";
 import Abilities from "./modal components/Abilities.jsx";
 import BaseStats from "./modal components/BaseStats.jsx";
+import Moves from "./modal components/Moves.jsx";
 
 export default function Modal({poke, pokeInfo, eggGroups}) {
     
@@ -25,6 +26,7 @@ export default function Modal({poke, pokeInfo, eggGroups}) {
             <EggGroups eggGroups={eggGroups} />
             <Abilities abilities={poke.abilities} />
             <BaseStats baseStats={poke.stats}/>
+            <Moves moveSet={poke.moves} />
             <div className="modal__footer">
             </div>
     
