@@ -11,6 +11,7 @@ function App() {
   const [ isLoading, setIsLoading ] = useState(true)
 
   const generatePokemon = async () => {
+    setIsLoading(true)
     const poke = [];
     let pokeIDs = [];
     while(poke.length < pokeAmount) {

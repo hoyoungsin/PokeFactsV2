@@ -27,7 +27,7 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
     setPokeAmount(parseInt(event.target.value, 10))
   }
 
-  const handleClick = (id) => {
+  const handleClickPoke = (id) => {
     setPokeId(id)
     fetchPokeInfo(id)
   }
@@ -44,6 +44,14 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
     setPokeId(null)
   }
   
+  const pokeList = () => {
+    return (
+      <>
+        {poke.map(pokemon => <Pokemon handleClickPoke={handleClickPoke} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
+      </>
+    )
+  }
+
   return (
     <>
       <h1 className="Title">PokeFacts</h1>
@@ -66,7 +74,7 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
       {isLoading ?
         <div className="loading">Generating Pokemon</div> : 
         <div className="pokeContainer" >
-          {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
+          {pokeList()}
         </div>
       }
       <div id="info-modal" className="modal">
