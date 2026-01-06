@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({ isLoading, setIsLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -38,6 +38,7 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
   }
 
   const handleGenChange = (gen, total) => {
+    setIsLoading(true)
     setGenAmount(gen)
     setGenTotal(total)
     setPokeAmount(70)
@@ -46,7 +47,7 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
   
   return (
     <>
-      <h1 className="Title">PokeFacts</h1>
+      <h1 className="Title">PokéFacts</h1>
       <div className="genContainer">
         <button className="genChange" onClick={() => handleGenChange(151, 151)}>Gen I</button>
         <button className="genChange" onClick={() => handleGenChange(100, 251)}>Gen II</button>
@@ -59,12 +60,12 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
         <button className="genChange" onClick={() => handleGenChange(120, 1025)}>Gen IX</button>
       </div>
       <div className="slider">
-        <div className="pokeAmount" id="sliderValue">Amount of Pokemon: {pokeAmount} </div>
+        <div className="pokeAmount" id="sliderValue">Amount of Pokémon: {pokeAmount} </div>
         <input type="range" min="1" max={genAmount} value={pokeAmount} onChange={handleChange} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
       {isLoading ?
-        <div className="loading">Generating Pokemon</div> : 
+        <div className="loading">Generating Pokémon</div> : 
         <div className="pokeContainer" >
           {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
         </div>
@@ -72,6 +73,7 @@ export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, gener
       <div id="info-modal" className="modal">
         {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} /> : <></>}
       </div>
+      <div className="disclaimer">Pokémon and its respective characters are trademarks and copyrights of Nintendo, Game Freak, and The Pokémon Company. This project is not affiliated with, endorsed, sponsored, or specifically approved by Nintendo, Game Freak, or The Pokémon Company and is intended for personal and educational use only.</div>
     </>
   )
 }

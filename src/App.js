@@ -33,6 +33,7 @@ function App() {
     <>
       <Home
         isLoading={isLoading}
+        setIsLoading={setIsLoading}
         poke={pokemon}
         pokeAmount={pokeAmount}
         setPokeAmount={setPokeAmount}
