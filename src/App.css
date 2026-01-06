@@ -5,6 +5,7 @@ body {
   align-items: center;
   background-color: red;
   text-align: center;
+  caret-color: transparent;
 }
 
 .Title {
@@ -24,11 +25,17 @@ body {
   justify-content: space-around;
   background-color: white;
   border-radius: 50px;
+  user-select: none;
 }
 
 .pokeSprite {
   height: 100px;
   width: auto;
+}
+
+.disclaimer {
+  color: white;
+  font-size: 12px;
 }
 /* Home End */
 
@@ -39,6 +46,7 @@ body {
 .loading {
   color: white;
   font-size: 30px;
+  user-select: none;
 }
 
 /* Loading End */
