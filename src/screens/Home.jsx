@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({ isLoading, setIsLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({ isLoading, poke, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -38,7 +38,6 @@ export default function Home({ isLoading, setIsLoading, poke, pokeAmount, setPok
   }
 
   const handleGenChange = (gen, total) => {
-    setIsLoading(true)
     setGenAmount(gen)
     setGenTotal(total)
     setPokeAmount(70)
