@@ -14,7 +14,7 @@ body {
 
 
 /* Home */
-.pokeAmount {
+.sliderAmount {
   color: white;
 }
 
@@ -42,9 +42,19 @@ body {
 
 
 /* Loading */
+.pokeContainerLoading {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50px;
+  user-select: none;
+  height: 150px;
+}
 
 .loading {
-  color: white;
+  color: red;
   font-size: 30px;
   user-select: none;
 }
