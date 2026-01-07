@@ -5,6 +5,7 @@ body {
   align-items: center;
   background-color: red;
   text-align: center;
+  caret-color: transparent;
 }
 
 .Title {
@@ -13,7 +14,7 @@ body {
 
 
 /* Home */
-.pokeAmount {
+.sliderAmount {
   color: white;
 }
 
@@ -24,21 +25,45 @@ body {
   justify-content: space-around;
   background-color: white;
   border-radius: 50px;
+  padding: 10px;
+  user-select: none;
 }
 
 .pokeSprite {
-  height: 100px;
+  height: 120px;
   width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pokeSprite:hover {
+  transform: scale(1.2);
+}
+
+.disclaimer {
+  color: white;
+  font-size: 12px;
 }
 /* Home End */
 
 
 
 /* Loading */
+.pokeContainerLoading {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 50px;
+  user-select: none;
+  height: 150px;
+}
 
 .loading {
-  color: white;
+  color: red;
   font-size: 30px;
+  user-select: none;
 }
 
 /* Loading End */
@@ -47,34 +72,35 @@ body {
 
 /* Modal */
 .modal {
-  visibility: hidden;
-  opacity: 0;
+  opacity: 1;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 10;
-  left: 0;
+  /* can be fixed once modal is updated */
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(77, 77, 77, .7);
-  transition: all 1s;
-}
-
-.modal:target {
-  visibility: visible;
-  opacity: 1;
 }
 
 .modal__content {
-  border-radius: 4px;
   position: relative;
   width: 500px;
   max-width: 90%;
   background: #fff;
-  padding: 1em 2em;
+  border-radius: 4px;
   border: solid;
+  padding: 1em 2em;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: modalIn 0.3s ease forwards;
   /* TEMP BORDER */
+}
+
+@keyframes modalIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  } 
 }
 
 .modal__close {

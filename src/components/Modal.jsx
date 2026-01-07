@@ -5,32 +5,40 @@ import Abilities from "./modal components/Abilities.jsx";
 import BaseStats from "./modal components/BaseStats.jsx";
 import Moves from "./modal components/Moves.jsx";
 
-export default function Modal({poke, pokeInfo, eggGroups}) {
+export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
     
     let pokeName = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
-
     // console logs for api data incase of api updates or changes
     // console.log(poke)
     // console.log(poke.types)
     // console.log(pokeInfo)
     // console.log(eggGroups)
     // console.log(poke.stats)
+
+    const handleModalClick = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    }
+
+    // can add esc-to-close-modal through useEffect
+
     return (
-        <div className="modal__content">
-            <h2 className="name">{pokeName}</h2>
-            <Sprites sprites={poke.sprites} />
-            <Types types={poke.types} />
-            <p className="info">
-                {pokeInfo}
-            </p>
-            <EggGroups eggGroups={eggGroups} />
-            <Abilities abilities={poke.abilities} />
-            <BaseStats baseStats={poke.stats}/>
-            <Moves moveSet={poke.moves} />
-            <div className="modal__footer">
+        <div className="modal" onClick={handleModalClick}>
+            <div className="modal__content">
+                <button className="modal__close" onClick={onClose}>&times;</button>
+                <h2 className="name">{pokeName}</h2>
+                <Sprites sprites={poke.sprites} />
+                <Types types={poke.types} />
+                <p className="info">
+                    {pokeInfo}
+                    {/*need to edit out any unnecessary text*/}
+                </p>
+                <EggGroups eggGroups={eggGroups} />
+                <Abilities abilities={poke.abilities} />
+                <BaseStats baseStats={poke.stats}/>
+                <Moves moveSet={poke.moves} />
             </div>
-    
-            <a href="#" className="modal__close">&times;</a>
         </div>
     )
 }
