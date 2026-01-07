@@ -31,6 +31,12 @@ body {
 .pokeSprite {
   height: 100px;
   width: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.pokeSprite:hover {
+  transform: scale(1.2);
 }
 
 .disclaimer {
