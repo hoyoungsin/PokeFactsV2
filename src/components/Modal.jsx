@@ -8,15 +8,23 @@ import Moves from "./modal components/Moves.jsx";
 export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
     
     let pokeName = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
-
     // console logs for api data incase of api updates or changes
     // console.log(poke)
     // console.log(poke.types)
     // console.log(pokeInfo)
     // console.log(eggGroups)
     // console.log(poke.stats)
+
+    const handleModalClick = (e) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    }
+
+    // can add esc-to-close-modal through useEffect
+
     return (
-        <div className="modal">
+        <div className="modal" onClick={handleModalClick}>
             <div className="modal__content">
                 <button className="modal__close" onClick={onClose}>&times;</button>
                 <h2 className="name">{pokeName}</h2>
@@ -24,12 +32,12 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
                 <Types types={poke.types} />
                 <p className="info">
                     {pokeInfo}
+                    {/*need to edit out any unnecessary text*/}
                 </p>
                 <EggGroups eggGroups={eggGroups} />
                 <Abilities abilities={poke.abilities} />
                 <BaseStats baseStats={poke.stats}/>
                 <Moves moveSet={poke.moves} />
-                <div className="modal__footer"></div>
             </div>
         </div>
     )
