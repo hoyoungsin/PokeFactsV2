@@ -31,7 +31,8 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
   const handleGenerate = () => {
     setPokeAmount(sliderAmount)
     setPokeId(null)
-    // generatePokemon() *Not needed as useEffect will go into work when pokeAmount is changed
+    generatePokemon(sliderAmount)
+    // *Not needed as useEffect will go into work when pokeAmount is changed
   }
 
   const handleGenChange = (gen, total) => {
