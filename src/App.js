@@ -40,7 +40,6 @@ function App() {
         poke={pokemon}
         sliderAmount={sliderAmount}
         setSliderAmount={setSliderAmount}
-        pokeAmount={pokeAmount}
         setPokeAmount={setPokeAmount}
         generatePokemon={generatePokemon}
         setGenAmount={setGenAmount}

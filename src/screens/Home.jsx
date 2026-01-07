@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({isLoading, poke, sliderAmount, setSliderAmount, pokeAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({isLoading, poke, sliderAmount, setSliderAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -40,6 +40,7 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, po
     setSliderAmount(70)
     setPokeAmount(70)
     setPokeId(null)
+    generatePokemon()
   }
   
   return (
@@ -57,7 +58,7 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, po
         <button className="genChange" onClick={() => handleGenChange(120, 1025)}>Gen IX</button>
       </div>
       <div className="slider">
-        <div className="pokeAmount" id="sliderValue">Amount of Pokémon: {sliderAmount} </div>
+        <div className="sliderAmount" id="sliderValue">Amount of Pokémon: {sliderAmount} </div>
         <input type="range" min="1" max={genAmount} value={sliderAmount} onChange={(event) => setSliderAmount(parseInt(event.target.value))} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
       </div>
