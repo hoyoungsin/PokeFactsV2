@@ -70,9 +70,7 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
           {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
         </div>
       }
-      <div id="info-modal" className="modal">
-        {pokeId ? <Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} /> : <></>}
-      </div>
+      {pokeId && (<Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} onClose={() => setPokeId(null)} /> )}
       <div className="disclaimer">Pokémon and its respective characters are trademarks and copyrights of Nintendo, Game Freak, and The Pokémon Company. This project is not affiliated with, endorsed, sponsored, or specifically approved by Nintendo, Game Freak, or The Pokémon Company and is intended for personal and educational use only.</div>
     </>
   )
