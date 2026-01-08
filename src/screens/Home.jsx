@@ -15,10 +15,10 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
     for (let i = 0; i < info.flavor_text_entries.length; i++) {
       // console.log(info.flavor_text_entries[i].language.name)
       if (info.flavor_text_entries[i].language.name === `en`) {
-        setPokeInfo(info.flavor_text_entries[i].flavor_text)
+        setPokeInfo(info.flavor_text_entries[i].flavor_text.replace(/[\n\f\r]/g, " ").replace(/\s+/g, " ").trim())
         break;
       } else {
-        setPokeInfo(info.flavor_text_entries[0].flavor_text)
+        setPokeInfo(info.flavor_text_entries[0].flavor_text.replace(/[\n\f\r]/g, " ").replace(/\s+/g, " ").trim())
       }
     }
   }
