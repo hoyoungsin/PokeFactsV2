@@ -30,9 +30,7 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
 
   const handleGenerate = () => {
     setPokeAmount(sliderAmount)
-    setPokeId(null)
     generatePokemon(sliderAmount)
-    // *Not needed as useEffect will go into work when pokeAmount is changed
   }
 
   const handleGenChange = (gen, total) => {
@@ -40,8 +38,6 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
     setGenTotal(total)
     setSliderAmount(70)
     setPokeAmount(70)
-    setPokeId(null)
-    generatePokemon()
   }
   
   return (
