@@ -1,21 +1,22 @@
-import { useState } from "react"
+// import { useState } from "react"
 
 export default function BaseStats({baseStats}) {
-    const [ showStat, setShowStat ] = useState(false)
+    // const [ showStat, setShowStat ] = useState(false)
     let totalStat = 0
     for (let i = 0; i < 6; i++) {
         totalStat += baseStats[i].base_stat
     }
 
-    const handleButton = () => {
-        if (showStat === false) {
-            setShowStat(true)
-        } else {
-            setShowStat(false)
-        }
-    }
+    // const handleButton = () => {
+    //     if (showStat === false) {
+    //         setShowStat(true)
+    //     } else {
+    //         setShowStat(false)
+    //     }
+    // }
+    // StatBars show and hide for now before it is condensed and modal is reformatted.
+    // ***Currently being reformatted.
 
-    // StatBars show and hide
     const StatBars = () => {
         return (
             <div>
@@ -34,8 +35,10 @@ export default function BaseStats({baseStats}) {
     // console.log(showStat)
     return (
         <div className="baseStatsContainer">
-            <button className="statdropbtn" onClick={handleButton} >Base Stats</button>
-            {showStat ? <StatBars/> : <></>}
+            {/* <button className="statdropbtn" onClick={handleButton} >Base Stats</button> */}
+            <div className="statdropbtn">Base Stats</div>
+            {/* {showStat ? <StatBars/> : <></>} */}
+            {<StatBars/>}
         </div>
     )
 }

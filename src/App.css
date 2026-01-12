@@ -111,6 +111,11 @@ body {
   text-decoration: none;
 }
 
+.modalTop {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .sprite {
   height: 200px;
   width: auto;
@@ -279,7 +284,7 @@ body {
   border: solid;
   /* TEMP BORDER */
 }
-
+/* 
 .statdropbtn {
   background-color: white;
   border: none;
@@ -290,10 +295,10 @@ body {
 
 .statdropbtn:hover {
   background-color: #DCDCDC;
-}
+} */
 
 .statBar {
-  height: 20px;
+  height: 15px;
 } 
 
 /* Stat Colors */
