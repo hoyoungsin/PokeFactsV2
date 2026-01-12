@@ -139,98 +139,82 @@ body {
 
 .type {
   border-style: solid;
+  border-color: black;
+  border-width: 2px;
   color: white;
   width: 60px;
 }
 
 /* Type Colors */
 #normal {
-  border-color: #9FA19F;
   background-color: #9FA19F;
 }
 
 #fighting {
-  border-color: #FF8000;
   background-color: #FF8000;
 }
 
 #flying {
-  border-color: #81B9EF;
   background-color: #81B9EF;
 }
 
 #poison {
-  border-color: #9141CB;
   background-color: #9141CB;
 }
 
 #ground {
-  border-color: #915121;
   background-color: #915121;
 }
 
 #rock {
-  border-color: #AFA981;
   background-color: #AFA981;
 }
 
 #bug {
-  border-color: #91A119;
   background-color: #91A119;
 }
 
 #ghost {
-  border-color: #704170;
   background-color: #704170;
 }
 
 #steel {
-  border-color: #60A1B8;
   background-color: #60A1B8;
 }
 
 #fire {
-  border-color: #E62829;
   background-color: #E62829;
 }
 
 #water {
-  border-color: #2980EF;
   background-color: #2980EF;
 }
 
 #grass {
-  border-color: #3FA129;
   background-color: #3FA129;
 }
 
 #electric {
-  border-color: #FAC000;
   background-color: #FAC000;
 }
 
 #psychic {
-  border-color: #EF4179;
   background-color: #EF4179;
 }
 
 #ice {
-  border-color: #3DCEF3;
   background-color: #3DCEF3;
 }
 
 #dragon {
-  border-color: #5060E1;
   background-color: #5060E1;
 }
 
 #dark {
-  border-color: #624D4E;
   background-color: #624D4E;
 }
 
 #fairy {
-  border-color: #EF70EF;
   background-color: #EF70EF;
 }
 /* Types and Type Colors End */
@@ -256,6 +240,8 @@ body {
 
 .eggGroup {
   border: solid;
+  border-color: black;
+  border-width: 2px;
 }
 /* Egg Groups End */
 
@@ -296,6 +282,7 @@ body {
 .statdropbtn:hover {
   background-color: #DCDCDC;
 } */
+/* Stat button removed during restructure */
 
 .statBar {
   height: 15px;

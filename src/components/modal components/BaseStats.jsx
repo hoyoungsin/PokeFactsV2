@@ -23,7 +23,7 @@ export default function BaseStats({baseStats}) {
                 {baseStats.map((stat) => (
                     <div className="baseStat" key={stat.stat.name}>
                         {stat.stat.name}: {stat.base_stat}
-                        <p className="statBar" id={stat.stat.name} style={{width: `${stat.base_stat}px`}}></p>
+                        <p className="statBar" id={stat.stat.name} style={{width: `${stat.base_stat/2.55}%`}}></p>
                     </div>
                 ))}
                 <p>Total: {totalStat}</p>
