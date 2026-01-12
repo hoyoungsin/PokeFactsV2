@@ -27,9 +27,9 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
         <div className="modal" onClick={handleModalClick}>
             <div className="modal__content">
                 <button className="modal__close" onClick={onClose}>&times;</button>
+                <h2 className="name">{pokeName}</h2>
                 <div className="modalTop">
                     <div className="modalTopPoke">
-                        <h2 className="name">{pokeName}</h2>
                         <Sprites sprites={poke.sprites} />
                         <Types types={poke.types} />
                         <EggGroups eggGroups={eggGroups} />
