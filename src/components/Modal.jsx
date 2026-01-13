@@ -28,15 +28,18 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
             <div className="modal__content">
                 <button className="modal__close" onClick={onClose}>&times;</button>
                 <h2 className="name">{pokeName}</h2>
-                <Sprites sprites={poke.sprites} />
-                <Types types={poke.types} />
+                <div className="modalTop">
+                    <div className="modalTopPoke">
+                        <Sprites sprites={poke.sprites} />
+                        <Types types={poke.types} />
+                        <EggGroups eggGroups={eggGroups} />
+                    </div>
+                    <BaseStats baseStats={poke.stats}/>
+                </div>
                 <p className="info">
                     {pokeInfo}
-                    {/*need to edit out any unnecessary text*/}
                 </p>
-                <EggGroups eggGroups={eggGroups} />
                 <Abilities abilities={poke.abilities} />
-                <BaseStats baseStats={poke.stats}/>
                 <Moves moveSet={poke.moves} />
             </div>
         </div>
