@@ -35,9 +35,7 @@ export default function BaseStats({baseStats}) {
     // console.log(showStat)
     return (
         <div className="baseStatsContainer">
-            {/* <button className="statdropbtn" onClick={handleButton} >Base Stats</button> */}
-            <div className="statdropbtn">Base Stats</div>
-            {/* {showStat ? <StatBars/> : <></>} */}
+            <h4 className="statHeader">Base Stats</h4>
             {<StatBars/>}
         </div>
     )

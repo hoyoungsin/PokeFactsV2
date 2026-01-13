@@ -36,9 +36,9 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
                     </div>
                     <BaseStats baseStats={poke.stats}/>
                 </div>
-                <p className="info">
-                    {pokeInfo}
-                </p>
+                <div className="info">
+                    Description: {pokeInfo}
+                </div>
                 <Abilities abilities={poke.abilities} />
                 <Moves moveSet={poke.moves} />
             </div>

@@ -39,6 +39,8 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
     setSliderAmount(70)
     setPokeAmount(70)
   }
+  // handleGenChange will need to be removed once filters are added
+  
   
   return (
     <>

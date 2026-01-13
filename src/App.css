@@ -87,7 +87,6 @@ body {
   width: 500px;
   max-width: 90%;
   background: #fff;
-  border-radius: 4px;
   border: solid;
   padding: 1em 2em;
   transform: scale(0.9);
@@ -108,12 +107,15 @@ body {
   top: 30px;
   right: 30px;
   color: #585858;
-  text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .modalTop {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .sprite {
@@ -133,7 +135,8 @@ body {
   display: flex;
   align-items: center;
   align-content: space-around;
-  border: solid;
+  height: 40px;
+  /* border: solid; */
   /* TEMP BORDER */
 }
 
@@ -221,20 +224,12 @@ body {
 
 
 
-/* Poke Info */
-.info {
-  border: solid;
-  /* TEMP BORDER */
-}
-/* Poke Info End */
-
-
-
 /* Egg Groups */
 .eggGroupContainer {
   display: flex;
   align-items: center;
-  border: solid;
+  height: 40px;
+  /* border: solid; */
   /* TEMP BORDER */
 }
 
@@ -247,28 +242,17 @@ body {
 
 
 
-/* Abilities */
-.abilitiesContainer {
-  display: block;
-  align-items: center;
-  border: solid;
-  /* TEMP BORDER */
-}
-
-.ability {
-  border-style: solid;
-}
-/* Abilities End */
-
-
-
 /* Base Stats */
 .baseStatsContainer {
   display: block;
   /* for easier view for now. update after fixing modal */
-
-  border: solid;
+  /* border: solid; */
   /* TEMP BORDER */
+}
+
+.statHeader {
+  padding: 10px;
+  margin: 10px;
 }
 /* 
 .statdropbtn {
@@ -286,28 +270,58 @@ body {
 
 .statBar {
   height: 15px;
+  margin: 1px;
 } 
 
 /* Stat Colors */
 #hp {
   background-color: #448F0C;
 }
+
 #attack {
   background-color: #9B8510;
 }
+
 #defense {
   background-color: #97410C;
 }
+
 #special-attack {
   background-color: #0D7F9D;
 }
+
 #special-defense {
   background-color: #304591;
 }
+
 #speed {
   background-color: #8B1370;
 }
 /* Base Stats and Stat Colors End */
+
+
+
+/* Poke Info */
+.info {
+  border: solid;
+  /* TEMP BORDER */
+}
+/* Poke Info End */
+
+
+
+/* Abilities */
+.abilitiesContainer {
+  display: block;
+  align-items: center;
+  border: solid;
+  /* TEMP BORDER */
+}
+
+.ability {
+  border-style: solid;
+}
+/* Abilities End */
 
 
 

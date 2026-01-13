@@ -45,7 +45,7 @@ export default function Abilities({abilities}) {
                     </option>))
                 }
             </select>
-            <p>Ability Details: {abilityInfo}</p>
+            <p>{abilityInfo}</p>
         </div>
     )
 }
