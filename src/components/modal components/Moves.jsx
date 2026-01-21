@@ -1,56 +1,46 @@
 import { useState } from "react"
 
 export default function Moves({moveSet}) {
-    const [ showMoves, setShowMoves ] = useState(false)
-    const [ moveGen, setMoveGen ] = useState("Gen I")
+    const [ moveGen, setMoveGen ] = useState("gen1")
 
-
-    // for loop for moveSet function
-    for (let i = 0; i < moveSet.length; i++) {
-        for (let j = 0; j < moveSet[i].version_group_details.length; j++) {
-            if (moveSet[i].version_group_details[j].version_group.name === moveGen) {
-                // console.log(moveSet[i].move.name)
-                // console.log(moveSet[i].version_group_details[j].level_learned_at)
-                // console.log(moveSet[i].version_group_details[j].move_learn_method.name)
-                // console.log(moveSet[i].version_group_details[j].version_group)
-            }
-        }
-    }
-
-    console.log(moveSet)
 
     const handleGen = (gen) => {
         setMoveGen(gen)
     }
 
-    const handleButton = () => {
-        if (showMoves === false) {
-            setShowMoves(true)
-        } else {
-            setShowMoves(false)
-        }
-    }
-    
-    // remove handleGen and create move set table
+    const MovesTable = () => {
+        const genMoves = moveSet[moveGen]["level-up"].sort((a, b) => a.level - b.level)
 
-
-    const Moves = () => {
         return (
             <div>
-                <p>
-                    Generation
-                    <select onChange={(e) => handleGen(e.target.value)}>
-                        <option value="Gen I">Gen I</option>
-                    </select>
-                </p>
+                Test for moveset
+                <div>
+                    {genMoves.map((moves) => (
+                        <div className="moveTable">
+                            <p>{moves.name}</p>
+                            <p>level:{moves.level}</p>
+                            <p>{moves.game}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
     }
 
     return (
         <div className="movesContainer">
-            <button className="movesdropbtn" onClick={handleButton}>Moves</button>
-            {showMoves ? <Moves/>: <></>}
+            <div className="genContainer">
+                <button className="genChange" onClick={() => handleGen("gen1")}>Gen I</button>
+                <button className="genChange" onClick={() => handleGen("gen2")}>Gen II</button>
+                <button className="genChange" onClick={() => handleGen("gen3")}>Gen III</button>
+                <button className="genChange" onClick={() => handleGen("gen4")}>Gen IV</button>
+                <button className="genChange" onClick={() => handleGen("gen5")}>Gen V</button>
+                <button className="genChange" onClick={() => handleGen("gen6")}>Gen VI</button>
+                <button className="genChange" onClick={() => handleGen("gen7")}>Gen VII</button>
+                <button className="genChange" onClick={() => handleGen("gen8")}>Gen VIII</button>
+                <button className="genChange" onClick={() => handleGen("gen9")}>Gen IX</button>
+            </div>
+            <MovesTable/>
         </div>
     )
 }
