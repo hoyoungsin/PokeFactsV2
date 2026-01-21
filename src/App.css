@@ -33,11 +33,12 @@ body {
   height: 120px;
   width: auto;
   cursor: pointer;
+  transform: scale(0.9);
   transition: transform 0.2s ease;
 }
 
 .pokeSprite:hover {
-  transform: scale(1.2);
+  transform: scale(1.0);
 }
 
 .disclaimer {
@@ -83,11 +84,11 @@ body {
 }
 
 .modal__content {
-  position: relative;
+  position: absolute;
+  top: 10vh;
   width: 500px;
   max-width: 90%;
   background: #fff;
-  border-radius: 4px;
   border: solid;
   padding: 1em 2em;
   transform: scale(0.9);
@@ -108,7 +109,15 @@ body {
   top: 30px;
   right: 30px;
   color: #585858;
-  text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.modalTop {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: solid;
+  /* TEMP BORDER */
 }
 
 .sprite {
@@ -128,107 +137,169 @@ body {
   display: flex;
   align-items: center;
   align-content: space-around;
-  border: solid;
+  height: 40px;
+  /* border: solid; */
   /* TEMP BORDER */
 }
 
 .type {
   border-style: solid;
+  border-color: black;
+  border-width: 2px;
   color: white;
   width: 60px;
 }
 
 /* Type Colors */
 #normal {
-  border-color: #9FA19F;
   background-color: #9FA19F;
 }
 
 #fighting {
-  border-color: #FF8000;
   background-color: #FF8000;
 }
 
 #flying {
-  border-color: #81B9EF;
   background-color: #81B9EF;
 }
 
 #poison {
-  border-color: #9141CB;
   background-color: #9141CB;
 }
 
 #ground {
-  border-color: #915121;
   background-color: #915121;
 }
 
 #rock {
-  border-color: #AFA981;
   background-color: #AFA981;
 }
 
 #bug {
-  border-color: #91A119;
   background-color: #91A119;
 }
 
 #ghost {
-  border-color: #704170;
   background-color: #704170;
 }
 
 #steel {
-  border-color: #60A1B8;
   background-color: #60A1B8;
 }
 
 #fire {
-  border-color: #E62829;
   background-color: #E62829;
 }
 
 #water {
-  border-color: #2980EF;
   background-color: #2980EF;
 }
 
 #grass {
-  border-color: #3FA129;
   background-color: #3FA129;
 }
 
 #electric {
-  border-color: #FAC000;
   background-color: #FAC000;
 }
 
 #psychic {
-  border-color: #EF4179;
   background-color: #EF4179;
 }
 
 #ice {
-  border-color: #3DCEF3;
   background-color: #3DCEF3;
 }
 
 #dragon {
-  border-color: #5060E1;
   background-color: #5060E1;
 }
 
 #dark {
-  border-color: #624D4E;
   background-color: #624D4E;
 }
 
 #fairy {
-  border-color: #EF70EF;
   background-color: #EF70EF;
 }
 /* Types and Type Colors End */
+
+
+
+/* Egg Groups */
+.eggGroupContainer {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  /* border: solid; */
+  /* TEMP BORDER */
+}
+
+.eggGroup {
+  border: solid;
+  border-color: black;
+  border-width: 2px;
+}
+/* Egg Groups End */
+
+
+
+/* Base Stats */
+.baseStatsContainer {
+  display: block;
+  /* for easier view for now. update after fixing modal */
+  /* border: solid; */
+  /* TEMP BORDER */
+}
+
+.statHeader {
+  padding: 10px;
+  margin: 10px;
+}
+/* 
+.statdropbtn {
+  background-color: white;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.statdropbtn:hover {
+  background-color: #DCDCDC;
+} */
+/* Stat button removed during restructure */
+
+.statBar {
+  height: 15px;
+  margin: 1px;
+} 
+
+/* Stat Colors */
+#hp {
+  background-color: #448F0C;
+}
+
+#attack {
+  background-color: #9B8510;
+}
+
+#defense {
+  background-color: #97410C;
+}
+
+#special-attack {
+  background-color: #0D7F9D;
+}
+
+#special-defense {
+  background-color: #304591;
+}
+
+#speed {
+  background-color: #8B1370;
+}
+/* Base Stats and Stat Colors End */
 
 
 
@@ -238,21 +309,6 @@ body {
   /* TEMP BORDER */
 }
 /* Poke Info End */
-
-
-
-/* Egg Groups */
-.eggGroupContainer {
-  display: flex;
-  align-items: center;
-  border: solid;
-  /* TEMP BORDER */
-}
-
-.eggGroup {
-  border: solid;
-}
-/* Egg Groups End */
 
 
 
@@ -271,70 +327,14 @@ body {
 
 
 
-/* Base Stats */
-.baseStatsContainer {
-  display: block;
-  /* for easier view for now. update after fixing modal */
-
-  border: solid;
-  /* TEMP BORDER */
-}
-
-.statdropbtn {
-  background-color: white;
-  border: none;
-  padding: 16px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.statdropbtn:hover {
-  background-color: #DCDCDC;
-}
-
-.statBar {
-  height: 20px;
-} 
-
-/* Stat Colors */
-#hp {
-  background-color: #448F0C;
-}
-#attack {
-  background-color: #9B8510;
-}
-#defense {
-  background-color: #97410C;
-}
-#special-attack {
-  background-color: #0D7F9D;
-}
-#special-defense {
-  background-color: #304591;
-}
-#speed {
-  background-color: #8B1370;
-}
-/* Base Stats and Stat Colors End */
-
-
-
 /* Moves */
 .movesContainer {
   border: solid;
   /* TEMP BORDER */
 }
 
-.movesdropbtn {
-  background-color: white;
-  border: none;
-  padding: 16px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.movesdropbtn:hover {
-  background-color: #DCDCDC;
+.moveTable {
+  display: flex;
 }
 
 /* BORDERS IN CONTAINERS FOR EASIER VIEWING UNTIL FINISHED EDITING */

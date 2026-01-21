@@ -1,9 +1,11 @@
+import { useMemo } from "react";
 import Sprites from "./modal components/Sprites.jsx";
 import Types from "./modal components/Types.jsx";
 import EggGroups from "./modal components/EggGroups.jsx";
 import Abilities from "./modal components/Abilities.jsx";
 import BaseStats from "./modal components/BaseStats.jsx";
 import Moves from "./modal components/Moves.jsx";
+import movesByGen from "./modal components/movesByGen.jsx";
 
 export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
     
@@ -23,21 +25,30 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
 
     // can add esc-to-close-modal through useEffect
 
+
+    const moveSet = useMemo(() => {
+        return movesByGen(poke.moves)
+    }, [poke.moves])
+
+
     return (
         <div className="modal" onClick={handleModalClick}>
             <div className="modal__content">
                 <button className="modal__close" onClick={onClose}>&times;</button>
                 <h2 className="name">{pokeName}</h2>
-                <Sprites sprites={poke.sprites} />
-                <Types types={poke.types} />
-                <p className="info">
-                    {pokeInfo}
-                    {/*need to edit out any unnecessary text*/}
-                </p>
-                <EggGroups eggGroups={eggGroups} />
+                <div className="modalTop">
+                    <div className="modalTopPoke">
+                        <Sprites sprites={poke.sprites} />
+                        <Types types={poke.types} />
+                        <EggGroups eggGroups={eggGroups} />
+                    </div>
+                    <BaseStats baseStats={poke.stats}/>
+                </div>
+                <div className="info">
+                    Description: {pokeInfo}
+                </div>
                 <Abilities abilities={poke.abilities} />
-                <BaseStats baseStats={poke.stats}/>
-                <Moves moveSet={poke.moves} />
+                <Moves moveSet={moveSet} />
             </div>
         </div>
     )
