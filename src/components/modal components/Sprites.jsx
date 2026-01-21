@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function Sprites({sprites}) {
     const defaultSprite = sprites.front_default
-    // default is black/white gen
+    // default is black/white gen for gen 1-5
     // may need to bring sprite verson up to pokemon generation for default sprite version on home page later
     const [ currentSprite, setCurrentSprite ] = useState(defaultSprite)
 

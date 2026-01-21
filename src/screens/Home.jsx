@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({isLoading, poke, sliderAmount, setSliderAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -21,17 +21,17 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
         setPokeInfo(info.flavor_text_entries[0].flavor_text.replace(/[\n\f\r]/g, " ").replace(/\s+/g, " ").trim())
       }
     }
-  }
+  } //pokemon detail to display english
 
   const handleClick = (id) => {
     setPokeId(id)
     fetchPokeInfo(id)
-  }
+  } // handle click for poke icon on home screen
 
   const handleGenerate = () => {
     setPokeAmount(sliderAmount)
     generatePokemon(sliderAmount)
-  }
+  } // handle generate button for slider
 
   const handleGenChange = (gen, total) => {
     setGenAmount(gen)
@@ -66,10 +66,10 @@ export default function Home({isLoading, poke, sliderAmount, setSliderAmount, se
           <div className="loading">Generating Pokémon...</div>
         </div>:
         <div className="pokeContainer" >
-          {poke.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
+          {pokes.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} id={pokemon.id} poke={pokemon}/>)}
         </div>
       }
-      {pokeId && (<Modal poke={poke.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} onClose={() => setPokeId(null)} /> )}
+      {pokeId && (<Modal poke={pokes.find(pokemon => pokemon.id === pokeId)} key={pokeId} pokeInfo={pokeInfo} eggGroups={eggGroups} onClose={() => setPokeId(null)} /> )}
       <div className="disclaimer">Pokémon and its respective characters are trademarks and copyrights of Nintendo, Game Freak, and The Pokémon Company. This project is not affiliated with, endorsed, sponsored, or specifically approved by Nintendo, Game Freak, or The Pokémon Company and is intended for personal and educational use only.</div>
     </>
   )

@@ -33,11 +33,12 @@ body {
   height: 120px;
   width: auto;
   cursor: pointer;
+  transform: scale(0.9);
   transition: transform 0.2s ease;
 }
 
 .pokeSprite:hover {
-  transform: scale(1.2);
+  transform: scale(1.0);
 }
 
 .disclaimer {
@@ -83,7 +84,8 @@ body {
 }
 
 .modal__content {
-  position: relative;
+  position: absolute;
+  top: 10vh;
   width: 500px;
   max-width: 90%;
   background: #fff;
@@ -331,16 +333,8 @@ body {
   /* TEMP BORDER */
 }
 
-.movesdropbtn {
-  background-color: white;
-  border: none;
-  padding: 16px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.movesdropbtn:hover {
-  background-color: #DCDCDC;
+.moveTable {
+  display: flex;
 }
 
 /* BORDERS IN CONTAINERS FOR EASIER VIEWING UNTIL FINISHED EDITING */

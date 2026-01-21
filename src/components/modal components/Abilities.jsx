@@ -20,21 +20,20 @@ export default function Abilities({abilities}) {
     const handleSelect = (ability) => {
         abilityDetails(ability)
     }
-
+    const formattedAbilityNames = abilities.map(ability => {
+        const formattedAbilityName = ability.ability.name
+        .split("-")
+        .map((abilityName) => abilityName.charAt(0).toUpperCase() + abilityName.slice(1))
+        .join(" ")
+        return formattedAbilityName
+    });
+    // console.log(formattedAbilityNames)
+    
     useEffect(() => {
         const firstAbility = abilities[0].ability.name
         abilityDetails(firstAbility)
     }, [abilities])
-    
-    const formattedAbilityNames = abilities.map(ability => {
-        const formattedAbilityName = ability.ability.name
-            .split("-")
-            .map((abilityName) => abilityName.charAt(0).toUpperCase() + abilityName.slice(1))
-            .join(" ")
-            return formattedAbilityName
-    });
-    // console.log(formattedAbilityNames)
-
+        
     return (
         <div className="abilitiesContainer">
             Abilities:
