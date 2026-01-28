@@ -36,8 +36,8 @@ export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, s
   const handleGenChange = (gen, total) => {
     setGenAmount(gen)
     setGenTotal(total)
-    setSliderAmount(70)
-    setPokeAmount(70)
+    setSliderAmount(gen)
+    setPokeAmount(gen)
   }
   // handleGenChange will need to be removed once filters are added
   

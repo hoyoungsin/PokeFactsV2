@@ -9,20 +9,54 @@ export default function Moves({moveSet}) {
     }
 
     const MovesTable = () => {
-        const genMoves = moveSet[moveGen]["level-up"].sort((a, b) => a.level - b.level)
+        const genMovesLevel = moveSet[moveGen]["level-up"].sort((a, b) => a.level - b.level)
+        const genMovesTM = moveSet[moveGen]["machine"].sort((a, b) => a.level - b.level)
+        const genMovesEgg = moveSet[moveGen]["egg"].sort((a, b) => a.level - b.level)
+        const genMovesTutor = moveSet[moveGen]["tutor"].sort((a, b) => a.level - b.level)
 
         return (
-            <div>
-                Test for moveset
-                <div>
-                    {genMoves.map((moves) => (
+            <div className="moveset">
+                Moveset {moveGen}
+                <div>By level
+                    {genMovesLevel.map((moves) => (
                         <div className="moveTable">
                             <p>{moves.name}</p>
-                            <p>level:{moves.level}</p>
+                            <p>. level: {moves.level} .</p>
                             <p>{moves.game}</p>
                         </div>
                     ))}
                 </div>
+                <div>By TM
+                    {genMovesTM.map((moves) => (
+                        <div className="moveTable">
+                            <p>{moves.name}</p>
+                            <p>. TM .</p>
+                            <p>{moves.game}</p>
+                        </div>
+                    ))}
+                </div>
+                {genMovesEgg.length > 0 ?
+                    <div>Egg Moves
+                        {genMovesEgg.map((moves) => (
+                            <div className="moveTable">
+                                <p>{moves.name}</p>
+                                <p>. Egg .</p>
+                                <p>{moves.game}</p>
+                            </div>
+                        ))}
+                    </div>
+                : <div>No Egg Moves</div>}
+                {genMovesTutor.length > 0 ?
+                    <div>Tutor Moves
+                        {genMovesTutor.map((moves) => (
+                            <div className="moveTable">
+                                <p>{moves.name}</p>
+                                <p>. Tutor .</p>
+                                <p>{moves.game}</p>
+                            </div>
+                        ))}
+                    </div>
+                : <div>No Tutor Moves</div>}
             </div>
         )
     }

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import Sprites from "./modal components/Sprites.jsx";
 import Types from "./modal components/Types.jsx";
 import EggGroups from "./modal components/EggGroups.jsx";
@@ -29,6 +29,14 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
     const moveSet = useMemo(() => {
         return movesByGen(poke.moves)
     }, [poke.moves])
+
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, []);
 
 
     return (
