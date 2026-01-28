@@ -66,6 +66,9 @@ export default function movesByGen(moves) {
             
             const genKey = `gen${genNumber}`
 
+            if (!movesByGenArray[genKey][method]) {
+                movesByGenArray[genKey][method] = [];
+            }
 
             movesByGenArray[genKey][method].push({
                 name: moveName,
