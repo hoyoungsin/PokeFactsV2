@@ -3,7 +3,7 @@ import { getPokeInfo } from "../services/pokemon.js";
 import Pokemon from "../components/Pokemon";
 import Modal from "../components/Modal";
 
-export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount }) {
+export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, setPokeAmount, generatePokemon, setGenAmount, setGenTotal, genAmount, setIsRandomized }) {
   const [ pokeId, setPokeId ] = useState("")
   const [ pokeInfo, setPokeInfo ] = useState("")
   const [ eggGroups, setEggGroups ] = useState([])
@@ -27,6 +27,10 @@ export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, s
     setPokeId(id)
     fetchPokeInfo(id)
   } // handle click for poke icon on home screen
+
+  const handleRandomize = (e) => {
+    setIsRandomized(e.target.checked);
+  }
 
   const handleGenerate = () => {
     setPokeAmount(sliderAmount)
@@ -60,6 +64,8 @@ export default function Home({isLoading, pokes, sliderAmount, setSliderAmount, s
         <div className="sliderAmount" id="sliderValue">Amount of Pokémon: {sliderAmount} </div>
         <input type="range" min="1" max={genAmount} value={sliderAmount} onChange={(event) => setSliderAmount(parseInt(event.target.value))} className="slider" id="myRange"/>
         <input type="button" value="Generate" onClick={handleGenerate} />
+        <label className="randomize" for="randomize">Randomize</label>
+        <input type="checkbox" id="randomize" onChange={handleRandomize}/>
       </div>
       {isLoading ?
         <div className="pokeContainerLoading" >

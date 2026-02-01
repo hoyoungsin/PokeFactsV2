@@ -18,6 +18,10 @@ body {
   color: white;
 }
 
+.randomize {
+  color: white;
+}
+
 .pokeContainer {
   display: flex;
   flex-flow: row wrap;
