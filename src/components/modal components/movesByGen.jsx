@@ -32,6 +32,7 @@ const GAME_TO_GEN = {
 
     "scarlet-violet": 9
 } //games by generation
+// may need to reorganize game_to_gen into better format and move to a separate utility file for generation information. Possibly combine with gen amount values.
 
 const emptyGen = () => ({
     "level-up": [],
@@ -54,7 +55,7 @@ export default function movesByGen(moves) {
     }
 
     moves.forEach((eachMove) => {
-        const moveName = eachMove.move.name
+        const moveName = eachMove.move.name.replace("-", " ")
 
         eachMove.version_group_details.forEach((detail) => {
             const genNumber = GAME_TO_GEN[detail.version_group.name]

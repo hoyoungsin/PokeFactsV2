@@ -21,7 +21,7 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
         if (e.target === e.currentTarget) {
             onClose();
         }
-    }
+    }// close modal on outside click
 
     // can add esc-to-close-modal through useEffect
 
@@ -36,7 +36,7 @@ export default function Modal({poke, pokeInfo, eggGroups, onClose }) {
         return () => {
             document.body.style.overflow = "";
         };
-    }, []);
+    }, []); // used to hide page scrolling when modal is open
 
 
     return (

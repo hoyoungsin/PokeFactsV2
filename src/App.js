@@ -59,7 +59,6 @@ function App() {
         genAmount={genAmount}
         setGenTotal={setGenTotal}
         setIsRandomized={setIsRandomized}
-        // for randomize
       />
     </>
   );
