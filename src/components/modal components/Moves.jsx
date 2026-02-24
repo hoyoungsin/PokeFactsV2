@@ -1,62 +1,135 @@
 import { useState } from "react"
 
-export default function Moves({moveSet}) {
-    const [ moveGen, setMoveGen ] = useState("gen1")
-
+export default function Moves({ moveSet }) {
+    const [moveGen, setMoveGen] = useState("gen1")
+    // need to remove any older gen moveset buttons from newer gen pokemon and state to be set to starting generation.
 
     const handleGen = (gen) => {
         setMoveGen(gen)
     }
 
-    const MovesTable = () => {
+    const moveGames = (gen) => {
+        switch (gen) {
+            case "gen1":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="redblue">R/B</th>
+                        <th scope="col" className="moveTableGame" id="yellow">Yel</th>
+                    </>
+                );
+            case "gen2":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="goldsilver">G/S</th>
+                        <th scope="col" className="moveTableGame" id="crystal">C</th>
+                    </>
+                );
+            case "gen3":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="rubysapphire">R/S</th>
+                        <th scope="col" className="moveTableGame" id="emerald">Em</th>
+                        <th scope="col" className="moveTableGame" id="fireredleafgreen">FR/LG</th>
+                    </>
+                );
+            case "gen4":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="diamondpearl">D/P</th>
+                        <th scope="col" className="moveTableGame" id="platinum">Pt</th>
+                        <th scope="col" className="moveTableGame" id="heartgoldsoulsilver">HG/SS</th>
+                    </>
+                );
+            case "gen5":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="blackwhite">B/W</th>
+                        <th scope="col" className="moveTableGame" id="blackwhite2">B/W 2</th>
+                        <th scope="col" className="moveTableGame" id="colosseum">Col</th>
+                        <th scope="col" className="moveTableGame" id="xd">XD</th>
+                    </>
+                );
+            case "gen6":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="xy">X/Y</th>
+                        <th scope="col" className="moveTableGame" id="omegarubyalphasapphire">OR/AS</th>
+                    </>
+                );
+            case "gen7":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="sunmoon">S/M</th>
+                        <th scope="col" className="moveTableGame" id="ultrasunultramoon">US/UM</th>
+                        <th scope="col" className="moveTableGame" id="letsgo">LGP/E</th>
+                    </>
+                );
+            case "gen8":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="swordshield">Sw/Sh</th>
+                        <th scope="col" className="moveTableGame" id="brilliantdiamondshiningpearl">BD/SP</th>
+                    </>
+                );
+            case "gen9":
+                return (
+                    <>
+                        <th scope="col" className="moveTableGame" id="scarletviolet">S/V</th>
+                    </>
+                );
+            default:
+                console.log("defaulted")
+        } // switch cases for gen games column in header
+    }
+
+
+    const moveTable = (method, genMoves) => {
+
+        return (
+            <>  {genMoves.length > 0 ?
+                <>
+                <caption>By {method}</caption>
+                <table className="movesContainer">
+                    <thead className="moveTableHead">
+                        <tr>
+                            <th scope="col">Move Name</th>
+                            {method === "Level" ? <th scope="col">{method}</th> : <></>}
+                            {moveGames(moveGen)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {genMoves.map((moves) => (
+                            <tr>
+                                <td>{moves.name}</td>
+                                {method === "Level" ? <td>{moves.level}</td> : <></>}
+                                <td>{moves.game}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                </> : <div>No {method} Moves</div> }
+            </>
+        )
+    }
+
+
+    const MovesContent = () => {
         const genMovesLevel = moveSet[moveGen]["level-up"].sort((a, b) => a.level - b.level)
         const genMovesTM = moveSet[moveGen]["machine"].sort((a, b) => a.level - b.level)
         const genMovesEgg = moveSet[moveGen]["egg"].sort((a, b) => a.level - b.level)
         const genMovesTutor = moveSet[moveGen]["tutor"].sort((a, b) => a.level - b.level)
 
+        // need to streamline movesets and movetable generation. 
+
+
+
         return (
             <div className="moveset">
-                Moveset {moveGen}
-                <div>By level
-                    {genMovesLevel.map((moves) => (
-                        <div className="moveTable">
-                            <p>{moves.name}</p>
-                            <p>. level: {moves.level} .</p>
-                            <p>{moves.game}</p>
-                        </div>
-                    ))}
-                </div>
-                <div>By TM
-                    {genMovesTM.map((moves) => (
-                        <div className="moveTable">
-                            <p>{moves.name}</p>
-                            <p>. TM .</p>
-                            <p>{moves.game}</p>
-                        </div>
-                    ))}
-                </div>
-                {genMovesEgg.length > 0 ?
-                    <div>Egg Moves
-                        {genMovesEgg.map((moves) => (
-                            <div className="moveTable">
-                                <p>{moves.name}</p>
-                                <p>. Egg .</p>
-                                <p>{moves.game}</p>
-                            </div>
-                        ))}
-                    </div>
-                : <div>No Egg Moves</div>}
-                {genMovesTutor.length > 0 ?
-                    <div>Tutor Moves
-                        {genMovesTutor.map((moves) => (
-                            <div className="moveTable">
-                                <p>{moves.name}</p>
-                                <p>. Tutor .</p>
-                                <p>{moves.game}</p>
-                            </div>
-                        ))}
-                    </div>
-                : <div>No Tutor Moves</div>}
+                Moveset Gen {moveGen.slice(3,4)}
+                {moveTable("Level", genMovesLevel)}
+                {moveTable("TM", genMovesTM)}
+                {moveTable("Egg", genMovesEgg)}
+                {moveTable("Tutor", genMovesTutor)}
             </div>
         )
     }
@@ -74,7 +147,7 @@ export default function Moves({moveSet}) {
                 <button className="genChange" onClick={() => handleGen("gen8")}>Gen VIII</button>
                 <button className="genChange" onClick={() => handleGen("gen9")}>Gen IX</button>
             </div>
-            <MovesTable/>
+            <MovesContent />
         </div>
     )
 }

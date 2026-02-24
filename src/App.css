@@ -49,6 +49,7 @@ body {
   color: white;
   font-size: 12px;
 }
+
 /* Home End */
 
 
@@ -106,7 +107,7 @@ body {
   to {
     transform: scale(1);
     opacity: 1;
-  } 
+  }
 }
 
 .modal__close {
@@ -132,7 +133,8 @@ body {
 
 .name {
   text-align: center
-}  
+}
+
 /* Modal End */
 
 
@@ -227,6 +229,7 @@ body {
 #fairy {
   background-color: #EF70EF;
 }
+
 /* Types and Type Colors End */
 
 
@@ -245,6 +248,7 @@ body {
   border-color: black;
   border-width: 2px;
 }
+
 /* Egg Groups End */
 
 
@@ -261,6 +265,7 @@ body {
   padding: 10px;
   margin: 10px;
 }
+
 /* 
 .statdropbtn {
   background-color: white;
@@ -278,7 +283,7 @@ body {
 .statBar {
   height: 15px;
   margin: 1px;
-} 
+}
 
 /* Stat Colors */
 #hp {
@@ -304,6 +309,7 @@ body {
 #speed {
   background-color: #8B1370;
 }
+
 /* Base Stats and Stat Colors End */
 
 
@@ -313,6 +319,7 @@ body {
   border: solid;
   /* TEMP BORDER */
 }
+
 /* Poke Info End */
 
 
@@ -328,6 +335,7 @@ body {
 .ability {
   border-style: solid;
 }
+
 /* Abilities End */
 
 
@@ -340,6 +348,33 @@ body {
 
 .moveTable {
   display: flex;
+  /* border: solid;
+  border-width: 2px; */
+  height: 30px;
+}
+
+.moveColumn {
+  display: flex;
+}
+
+.moveName {
+  /* border: solid;
+  border-width: 2px; */
+  width: 120px;
+  margin: 0;
+}
+
+.moveMethod {
+  /* border: solid;
+  border-width: 2px; */
+  width: 80px;
+  margin: 0;
+}
+
+.moveGame {
+  /* border: solid;
+  border-width: 2px; */
+  margin: 0;
 }
 
 /* BORDERS IN CONTAINERS FOR EASIER VIEWING UNTIL FINISHED EDITING */
